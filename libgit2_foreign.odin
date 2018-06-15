@@ -6,7 +6,7 @@
  *  @Creation: 13-12-2017 23:52:55 UTC-5
  *
  *  @Last By:   Mikkel Hjortshoej
- *  @Last Time: 15-06-2018 14:56:02 UTC+1
+ *  @Last Time: 15-06-2018 17:22:26 UTC+1
  *  
  *  @Description:
  *  
@@ -18,7 +18,7 @@ foreign import libgit "./external/libgit2.lib";
 
 @(default_calling_convention="stdcall")
 foreign libgit {
-    git_err_last                :: proc() -> ^Git_Error ---;
+    giterr_last                :: proc() -> ^Git_Error ---;
 
     // libgit2
     git_libgit2_init                :: proc() -> Error_Code ---;

@@ -6,7 +6,7 @@
  *  @Creation: 12-12-2017 01:50:33
  *
  *  @Last By:   Mikkel Hjortshoej
- *  @Last Time: 15-06-2018 15:13:39 UTC+1
+ *  @Last Time: 15-06-2018 17:22:32 UTC+1
  *
  *  @Description:
  *
@@ -253,7 +253,7 @@ ignore_add_rule             :: proc(repo : ^Repository, rules : string) -> Error
 //// git_err
 ////
 err_last :: proc() -> Error {
-    err := git_err_last();
+    err := giterr_last();
     if err == nil {
         return Error{"N/A", ErrorType.Unknown};
     }
