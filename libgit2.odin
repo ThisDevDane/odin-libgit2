@@ -6,7 +6,7 @@
  *  @Creation: 12-12-2017 01:50:33
  *
  *  @Last By:   Mikkel Hjortshoej
- *  @Last Time: 15-06-2018 17:22:32 UTC+1
+ *  @Last Time: 26-07-2018 22:28:01 UTC+1
  *
  *  @Description:
  *
@@ -307,7 +307,7 @@ _slice_to_str_array :: proc(slice : []string) -> Str_Array {
 _free_str_array :: proc(stra : ^Str_Array) {
     raw_strings := mem.slice_ptr(stra.strings, int(stra.count));
     for _, i in raw_strings {
-        runtime.free(raw_strings[i]);
+        runtime.delete(raw_strings[i]);
     }
 }
 
@@ -614,8 +614,8 @@ _signature_now :: proc(name, email : string) -> (Signature, Error_Code) {
 }
 
 _signature_free :: proc(sig : ^Signature) {
-    runtime.free(sig.name);
-    runtime.free(sig.email);
+    runtime.delete(sig.name);
+    runtime.delete(sig.email);
     free(sig._git_orig);
 }
 
